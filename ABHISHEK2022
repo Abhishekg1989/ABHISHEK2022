@@ -1,0 +1,348 @@
+#!/bin/bash
+
+echo "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+echo -e "This Script is to disable SSL on Queue Manager"
+echo "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+
+
+read -p "Enter the Queue Manager name:" Qmgr
+read -p "Enter the Sender channel name : " SDR
+read -p "Enter the Receiver channel name : " RCVR
+
+
+MQ_object=0
+
+#To check Queue Manager exists
+QmgrList=$(dspmq | grep "$Qmgr" | awk '{print $1}' | cut -c '8-' | cut -d ')' -f1 )
+if [ "$QmgrList" != "$Qmgr" ];
+then
+       echo -e "Queue Manager doesn't exists\n"
+       ((MQ_object++))
+fi
+
+#To check Sender Channel exists
+echo "DISPLAY CHANNEL( '$SDR' )" | runmqsc $Qmgr > /dev/null
+if [ $? -ne 0 ]
+then
+          echo " "
+          echo -e "Sender Channel doesn't exist\n"
+          ((MQ_object++))
+fi
+
+#To check Receiver channel exists
+echo "DISPLAY CHANNEL( '$RCVR' )" | runmqsc $Qmgr > /dev/null
+if [ $? -ne 0 ]
+then
+     echo " "
+     echo -e "Receiver Channel doesn't exist\n"
+    ((MQ_object++))
+fi
+
+SSL_Disable()
+{
+
+#Change the SSLKEYR parameter
+echo "DISPLAY QMGR SSLKEYR" | runmqsc $Qmgr
+echo "ALTER QMGR SSLKEYR('')" | runmqsc $Qmgr
+
+#Verify SSLKEYR Parameter
+echo "DISPLAY QMGR SSLKEYR" | runmqsc $Qmgr
+
+#Remove SSL files
+cd /qmgrs-data/$Qmgr/ssl
+rm -rf *
+
+#Unset SSL values on Sender channel
+echo "DISPLAY CHL( '$SDR' ) CHLTYPE(SDR) SSLCIPH" | runmqsc $Qmgr
+echo "DISPLAY CHL( '$RCVR' ) CHLTYPE(RCVR) SSLCIPH" | runmqsc $Qmgr
+echo "ALTER CHL( '$SDR' ) CHLTYPE(SDR) SSLCIPH('')" | runmqsc $Qmgr
+echo "ALTER CHL( '$RCVR' ) CHLTYPE(RCVR) SSLCIPH('')" | runmqsc $Qmgr
+
+#Verify SSLCIPH Parameter on Channels
+echo "DISPLAY CHL( '$SDR' ) CHLTYPE(SDR) SSLCIPH" | runmqsc $Qmgr
+echo "DISPLAY CHL( '$RCVR' ) CHLTYPE(RCVR) SSLCIPH" | runmqsc $Qmgr
+
+#Refresh qmgr security
+echo "REFRESH SECURITY TYPE(SSL)" | runmqsc $Qmgr
+}
+
+if [ "$MQ_object" -eq "0" ]
+then
+    SSL_Disable | tee /var/mqm/MQScripts/Scriptslog/"$Qmgr"_SSLDisable.$(date +%F).log
+else
+   echo " Please provide valid details "
+    exit
+fi
+==================================================================
+#!/bin/bash
+
+echo "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+echo -e "This Script is to Generate Queue Manager Certificate"
+echo "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+
+if [ `whoami` != mqm ]
+then
+   echo -e " Invalid user\n "
+   exit
+fi
+
+read -p "enter the Queue Manager name:" Qmgr
+
+
+#To check Queue Manager exists
+QmgrList=$(dspmq | grep "$Qmgr" | awk '{print $1}' | cut -c '8-' | cut -d ')' -f1 )
+if [ "$QmgrList" != "$Qmgr" ];
+then
+     echo " "
+     echo -e "Queue Manager doesn't exists\n"
+     exit
+fi
+
+
+#To check Queue Manager Certs exists at SSL Path
+if [ -e "/qmgrs-data/$Qmgr/ssl/$Qmgr.kdb" ]
+then
+      echo " $Qmgr cert is already exists"
+      exit
+fi
+
+
+echo " "
+echo "Enter the password of the Cert "
+stty -echo
+read p ;
+stty echo
+
+#To Translate the Queue Manager name to lower case letters
+qmgr=$( echo "$Qmgr" | tr '[:upper:]' '[:lower:]')
+
+generate_ssl()
+{
+
+#Queue Manager SSL path
+cd /qmgrs-data/$Qmgr/ssl/
+
+#Generate the Queue Manager Key store file
+runmqckm -keydb  -create  -db  $Qmgr.kdb  -type cms  -stash -pw "$p"
+
+#Generate the Queue Manager certificate
+runmqckm -certreq -create -db  $Qmgr.kdb  -file  $qmgr.csr -label  ibmwebspheremq$qmgr -dn "CN="$Qmgr".bcbsla.com,OU=IT,O=Louisiana Health Service and Indemnity Company,L=Baton Rouge,S=Louisiana,C=US" -size  2048 -sig_alg SHA256WithRSA -pw "$p"
+
+
+#Check the exit status
+if [ $? -eq 0 ]
+then
+        echo " "
+        echo -e "Certificates generated Successfully.Please raise request to Certificate Autority to pass $qmgr.csr with signed.\n"
+else
+        echo " "
+        echo -e "Certificates not generated Successfully.\n"
+fi
+
+}
+generate_ssl | tee /var/mqm/MQScripts/Scriptslog/"$Qmgr"_GenerateSSL.$(date +%F).log
+===========================================================================================================
+
+echo "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+echo -e "This Script is to enable SSL on Queue Manager"
+echo "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+
+
+read -p "Enter the Queue Manager name:" Qmgr
+read -p "Enter the Sender channel name : " SDR
+read -p "Enter the Receiver channel name : " RCVR
+read -p "Enter the Channel Cipher value : " CIPH
+
+
+MQ_object=0
+
+#To check Queue Manager exists
+QmgrList=$(dspmq | grep "$Qmgr" | awk '{print $1}' | cut -c '8-' | cut -d ')' -f1 )
+if [ "$QmgrList" != "$Qmgr" ];
+then
+       echo -e "Queue Manager doesn't exists\n"
+       ((MQ_object++))
+fi
+
+#To check Sender Channel exists
+echo "DISPLAY CHANNEL( '$SDR' )" | runmqsc $Qmgr > /dev/null
+if [ $? -ne 0 ]
+then
+          echo " "
+          echo -e "Sender Channel doesn't exist\n"
+          ((MQ_object++))
+fi
+
+#To check Receiver channel exists
+echo "DISPLAY CHANNEL( '$RCVR' )" | runmqsc $Qmgr > /dev/null
+if [ $? -ne 0 ]
+then
+     echo " "
+     echo -e "Receiver Channel doesn't exist\n"
+    ((MQ_object++))
+fi
+
+SSL_Enable()
+{
+
+#Change the SSLKEYR parameter
+echo "DISPLAY QMGR SSLKEYR" | runmqsc $Qmgr
+echo "ALTER QMGR SSLKEYR('/qmgrs-data/$Qmgr/ssl/$Qmgr')" | runmqsc $Qmgr
+
+#Verify SSLKEYR Parameter
+echo "DISPLAY QMGR SSLKEYR" | runmqsc $Qmgr
+
+
+
+#Set SSL values on Sender channel
+echo "DISPLAY CHL( '$SDR' ) CHLTYPE(SDR) SSLCIPH" | runmqsc $Qmgr
+echo "DISPLAY CHL( '$RCVR' ) CHLTYPE(RCVR) SSLCIPH" | runmqsc $Qmgr
+echo "ALTER CHL( '$SDR' ) CHLTYPE(SDR) SSLCIPH('$CIPH')" | runmqsc $Qmgr
+echo "ALTER CHL( '$RCVR' ) CHLTYPE(RCVR) SSLCIPH('$CIPH')" | runmqsc $Qmgr
+
+#Verify SSLCIPH Parameter on Channels
+echo "DISPLAY CHL( '$SDR' ) CHLTYPE(SDR) SSLCIPH" | runmqsc $Qmgr
+echo "DISPLAY CHL( '$RCVR' ) CHLTYPE(RCVR) SSLCIPH" | runmqsc $Qmgr
+
+#Refresh qmgr security
+echo "REFRESH SECURITY TYPE(SSL)" | runmqsc $Qmgr
+}
+
+if [ "$MQ_object" -eq "0" ]
+then
+    SSL_Enable | tee /var/mqm/MQScripts/Scriptslog/"$Qmgr"_SSLEnable.$(date +%F).log
+else
+   echo " Please provide valid details "
+    exit
+=========================================================================================
+
+echo "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+echo -e "This Script is to Deploy  Queue Manager Certificate\n"
+echo "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+
+if [ `whoami` != mqm ]
+then
+   echo -e " Invalid user\n "
+   exit
+fi
+
+read -p "Enter the Queue Manager name: " Qmgr
+
+QmgrList=$(dspmq | grep "$Qmgr" | awk '{print $1}' | cut -c '8-' | cut -d ')' -f1 )
+
+if [ "$QmgrList" != "$Qmgr" ];
+         then
+            echo -e "Queue Manager doesn't exists\n"
+         exit
+fi
+
+#Signed Certs path
+cd /qmgrs-data/$Qmgr/ssl/Certs
+
+#To convert Queue Manager name to lower case letters
+qmgr=$( echo "$Qmgr" | tr '[:upper:]' '[:lower:]')
+
+if [ -e TrustedRoot.crt ] && [ -e DigiCertCA.crt ] && [ -e ${qmgr}_bcbsla_com.crt ]
+then
+      echo "Root,Intermediate and Qmgr signed certs exists "
+else
+     echo " Please copy Root,Intermediate and Qmgr signed certs at /qmgrs-data/$Qmgr/ssl/Certs and re-run the script. "
+     exit
+fi
+
+echo " "
+echo "Enter the password of the cert "
+stty -echo
+read p ;
+stty echo
+
+#Qmgr SSL Path
+cd /qmgrs-data/$Qmgr/ssl
+
+Deploy_SSL()
+{
+
+#Import Signed private Qmgr certificate to key repository
+runmqckm -cert -receive -file ${qmgr}_bcbsla_com.crt -db $Qmgr.kdb -pw $p
+
+
+#Add Public Certificate Authority Root certificate to Queue Manager key repository
+runmqckm -cert -add -db $Qmgr.kdb -label 'Root CA' -file TrustedRoot.crt -pw $p
+
+
+#Add Public Certificate Authority Intermediate certificate to Queue Manager key repository
+runmqckm -cert -add -db $Qmgr.kdb  -label 'Inter CA' -file DigiCertCA.crt -pw $p
+
+
+#Verify the public and  private certificate in the key repository
+runmqckm -cert -list -db $Qmgr.kdb -pw $p
+
+
+#Check the validity of private qmgr cert details
+runmqckm -cert -details -label ibmwebspheremq$qmgr  -db $Qmgr.kdb -pw $p
+}
+
+Deploy_SSL | tee /var/mqm/MQScripts/Scriptslog/"$Qmgr"_DeploySSL.$(date +%F).log
+================================================================================================
+#!/bin/bash
+
+#=======================================================================
+#This Script is to check SSL validity on all qmgrs and notify alert
+#======================================================================
+
+
+sslexpiry ()
+{
+
+#Convert Queue Manager to Lower case letters
+i=$(echo "$Qmgr" | tr '[:upper:]' '[:lower:]')
+
+cd /qmgrs-data/$Qmgr/ssl
+
+runmqckm -cert -details -label ibmwebspheremq$i -db "$Qmgr".kdb -stashed > sslexpiry.out
+
+date1=$(cat sslexpiry.out | grep From | awk {'print $4,$5,$6,$7,$8'})
+
+date2=$(cat sslexpiry.out | grep To | awk {'print $12,$13,$14,$15,$16'})
+
+if [ "${date1}" != "" ] &&  [ "${date2}" != "" ]
+then
+       echo "Certificate is valid from $date1 to $date2" > /var/mqm/MQScripts/Scriptslog/"$Qmgr"_SSLExpiry.$(date +%F).log
+
+        #Convert to standard format in seconds
+
+        Start_Date=$(date -d "$date1" +%s)
+
+        End_Date=$(date -d "$date2" +%s)
+
+        Today_Date=$(date +%s)
+
+        Cert_Expiry=$((End_Date-Today_Date))
+        a=86400
+
+        Days_Left=$((Cert_Expiry / a))
+
+        if [ "$Days_Left" -le  "45" ]
+        then
+        echo "SSL Certificate for $Qmgr is expiring in $Days_Left days " | mail -s " $Qmgr SSL expiry alert" abhishek.govindu@bcbsla.com,Moin.Syed@bcbsla.com
+        else
+               exit
+        fi
+    else
+        echo "SSL Certificate for $Qmgr is not valid" | mail -s "$Qmgr SSL Certificate is not valid" abhishek.govindu@bcbsla.com,Moin.Syed@bcbsla.com
+    fi
+
+#Delete the output file
+rm sslexpiry.out
+
+}
+
+dspmq | while read line
+do
+Qmgr=$(echo $line | awk '{print $1}' | cut -c '8-' | cut -d ')' -f1)
+if [ -e "/qmgrs-data/$Qmgr/ssl/$Qmgr.kdb" ]
+then
+sslexpiry
+fi
+done
+==============================================================
