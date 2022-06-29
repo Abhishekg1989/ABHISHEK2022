@@ -1,0 +1,64 @@
+
+
+
+  751  getent group admin-system
+  752  cat /etc/group
+  753  usermod -aG wheel c71008
+  754  sudo -ll -U c71008
+  755  exec bash
+  756  getent passwd c71008
+  757  getent passwd c22427
+  758  cd /etc/sudoers
+  759  cat /etc/sudoers
+  760  usermod -aG root c71008
+  761  sudo -ll -U c71008
+  762  realm list
+  763  id -nG c71008
+  764  id -nG c22427
+  765  id -nG e32919
+  766  usermod -G root,wheel c71008
+  767  id -nG c71008
+  768  usermod -G root c71008
+  769  id -nG c71008
+  770  usermod -G wheel c71008
+  771  id -nG c71008
+  772  usermod -G wheel c71008
+  773  id -nG c71008
+  774  cd /etc/sudoers.d/;ls
+  775  cat /etc/nsswitch.conf
+  776  cat /var/log/secure | grep c71008
+  777  id -nG c71008
+  778  usermod -G wheel c71008
+  779  id -nG c71008
+  780  cat /etc/group
+  781  cat /etc/sudoers
+  782  gpasswd -d c71008 wheel
+  783  id -nG c71008
+  784  cat /etc/redhat-release
+  785  cd /etc/sudoers.d/sudoers-bcbsla  /qmgrs-data/[qmgr]/
+  786  cat /etc/sudoers.d/sudoers-bcbsla
+  787  cat /etc/sudoers
+  788  cat /etc/passwd
+  789  cat /etc/group
+  790  cd /etc/sudoers.d/;ls -l
+  791  cat sudoers-bcbsla
+  792  groups e32919
+  793  groups c71008
+  794  groups
+  795  sudo lid root
+  796  sudo lid e32919
+  797  exit
+  798  sudo -ll -U c71008
+  799  sudo -ll -U e32919
+  800  cat /etc/passwd
+  801  usermod -aG admin-system c71008
+  802  groupadd -g 70000 admin-system
+  803  usermod -aG admin-system c71008
+  804  sudo -ll -U c71008
+  805  passwd c71008
+  806  sudo su - mqm
+  807  history
+
+
+
+

@@ -1,0 +1,1076 @@
+[?2/?4/?2020 11:01 AM]  Nkellefack, Alen (Non Employee):  
+ok
+that's the ticket number: CATTSK0413054 
+I have detailed the steps in OneNote
+ 
+[?2/?4/?2020 11:02 AM]  
+okay
+ 
+[?2/?4/?2020 11:11 AM]  Nkellefack, Alen (Non Employee):  
+https://spwv03-vmwvcs01.lahsic.com/vsphere-client/?csp 
+
+CATTSK0413824 
+
+
+
+login as: c71008
+
+     This is a private and proprietary system. Unauthorized access is
+     unlawful and may result in disciplinary action and or legal
+     proceedings. Any access to this system/network may be monitored.
+
+
+     This is a private and proprietary system. Unauthorized access is
+     unlawful and may result in disciplinary action and or legal
+     proceedings. Any access to this system/network may be monitored.
+
+[c71008@sec-prod-ancti2 ~]$ sudo su -
+
+We trust you have received the usual lecture from the local System
+Administrator. It usually boils down to these three things:
+
+    #1) Respect the privacy of others.
+    #2) Think before you type.
+    #3) With great power comes great responsibility.
+
+[sudo] password for c71008:
+Last login: Thu Feb  6 11:07:54 CST 2020 on pts/0
+[root@sec-prod-ancti2 ~]# history
+    2  cat fwdRule-arcsight.00000001
+    3  cd ..
+    4  cat /etc/rsyslog.conf
+    5  grep arccon02 *
+    6  top
+    7  vi /etc/rsyslog.conf
+    8  systemctl restart rsyslog
+    9  systemctl -l status rsyslog
+   10  shutdown -h now
+   11  mail -s"lll" harold.burroughs@bcbsla.com
+   12  ps -ef | grep master
+   13  systemctl status postfix
+   14  cd /etc/postfix
+   15  ls -ltr
+   16  more main.cf
+   17  nslookup localhost
+   18  mail -v -s "lll" harold.burroughs@bcbsla.com
+   19  cat /etc/hosts
+   20  ifconfig -a
+   21  vi /etc/postfix/main.cf
+   22  systemctl restart postfix
+   23  systemctl -l status postfix
+   24  mail -v -s "x" harold.burroughs@bcbsla.com
+   25  mail  -s "x" harold.burroughs@bcbsla.com
+   26  mail  -s "y" harold.burroughs@bcbsla.com
+   27  grep ^inet /etc/postfix/main.cf
+   28  shutdown -h now
+   29  cat /etc/passwd
+   30  userdel -r e41028
+   31  man userdel
+   32  su - e41028
+   33  userdel  e41028
+   34  userdel  e410288
+   35  cat /etc/paswd
+   36  cat /etc/passwd
+   37  cat /etc/group
+   38  ls -la /home
+   39  useradd e410288
+   40  userdel  -r e410288
+   41  ls -la /home
+   42  shutdown -h now
+   43  rdist
+   44  top
+   45  yum install rdist.x86_64
+   46  history | grep subscr
+   47  subscription-manager list --comsumed
+   48  subscription-manager list --consumed
+   49  subscription-manager unregister
+   50  subscription-manager register
+   51  subscription-manager list --available
+   52  subscription-manager attach --pool=8a85f989478d160c01478dbbeb7d7251
+   53  subscription-manager list --consumed
+   54  history | grep subscription-manager
+   55  subscription-manager release
+   56  subscription-manager release set=7.2
+   57  man subscription-manager
+   58  subscription-manager release --set=7.2
+   59  subscription-manager release
+   60  yum install rdist.x86_64
+   61  rpm -i /nfs/linux/software/emc/avamar/linux/AvamarClient-linux-sles11-x86_64-7.2.101-32.rpm
+   62    /usr/local/avamar/bin/avregister
+   63  history
+   64  ls -l /nfs/linux/software/emc/avamar/linux/
+   65  rpm -e McAfeeVSEForLinux
+   66  rpm  -e MFEcma
+   67  cd /opt
+   68  unalias rm
+   69  ls
+   70  rm -r McAfee
+   71  df
+   72  shutdown -h now
+   73  cd /etc
+   74  ls -l | grep -i sudo
+   75  cp -p sudoers.orig sudoers
+   76  cat sudoers
+   77  shutdown -h now
+   78  w
+   79  shutdown -h now
+   80  passwd
+   81  shutdown -h now
+   82  cat /etc/passwd
+   83  cat /etc/group
+   84  cat /etc/passwd
+   85  cat /etc/group
+   86  cat /etc/passwd
+   87  shutdown -h now
+   88  cat /etc/redhat-release
+   89  subscription-manager unregister
+   90  subscription-manager clean
+   91  subscription-manager register --username=redhatbcbsla --password=r3dh@tbcb5l@ --auto-attach
+   92  yum repolist
+   93  subscription-manager release
+   94  subscription-manager release --set=7.2
+   95  subscription-manager repos --disable=rhel-7-server-eus-rpms
+   96  subscription-manager release
+   97  yum clean all
+   98  yum -y update
+   99  shutdown -r now
+  100  man shutdown
+  101  shut -now
+  102  shutdown -now
+  103  shutdown now
+  104   echo  "[org/gnome/login-screen]" >  /etc/dconf/db/gdm.d/01-custom-gdm-settings
+  105  echo "disable-user-list=true" >> /etc/dconf/db/gdm.d/01-custom-gdm-settings
+  106  echo "/org/gnome/login-screen/disable-user-list" >  /etc/dconf/db/gdm.d/locks/01-custom-gdm-settings
+  107  dconf update
+  108  chmod 644 /etc/dconf/db/gdm
+  109  systemctl restart gdm
+  110  shutdwon -r now
+  111  shutdown -r now
+  112  shutdown -h now
+  113  passwd
+  114  shutdown -P now
+  115  cat /etc/redhat-release
+  116  subscription-manager release
+  117  cat /etc/redhat-release
+  118  subscription-manager release
+  119  subscription-manager release --set=7.2
+  120  subscription-manager unregister
+  121  subscription-manager clean
+  122  rm -fr /var/cache/yum/*
+  123  subscription-manager register --username=redhatbcbsla --password=r3dh@tbcb5l@ --auto-attach
+  124  yum repolist
+  125  subscription-manager release --set=7.2
+  126  yum check-update
+  127  yum clean all
+  128  yum -y update
+  129  shutdown -r now
+  130  w
+  131  cd /var/log
+  132  cat yum.log
+  133  ls -ltr
+  134  ls -l
+  135  history | grep subsc
+  136  subscription-manager release
+  137  history
+  138  uptime
+  139  cat /etc/red*
+  140  shutdown -P now
+  141  cat /etc/passwd
+  142  cat /etc/group
+  143  userdel -r unixscan
+  144  cat /etc/group
+  145  cat /etc/passwd
+  146  shutdown -P now
+  147  exit
+  148  rpm -qa
+  149  rpm -qa --last
+  150  exit
+  151  history
+  152  rpm -qa --last
+  153  exit
+  154  ls -l ~/.config/gnome-initial-setup-done
+  155  cd /var/log
+  156  ls -ltr
+  157  cat yum.log
+  158  ls -l | grep yum
+  159  cat yum.log
+  160  history
+  161  ls -l ~/.config/gnome-initial-setup-done
+  162  ls -l /home
+  163  last
+  164  ls -l etc/gdm/custom.conf
+  165  ls -l /etc/gdm/custom.conf
+  166  cat /etc/gdm/custom.conf
+  167  vi /etc/gdm/custom.conf
+  168  reboot
+  169  history
+  170  cat /etc/gdm/custom.conf
+  171  shutdown -P now
+  172  df -hP /usr
+  173  lvextend --size +512M /dev/mapper/rootvg-usrlv
+  174  xfs_growfs /usr
+  175  df -hP /usr
+  176  exit
+  177  passwd
+  178  shutdown -P now
+  179  systemctl -l status libvirtd
+  180  systemctl stop libvirtd
+  181  ifconfig
+  182  systemctl disable  libvirtd
+  183  systemctl -l status libvirtd
+  184  reboot
+  185  ifconfig -a
+  186  shutdown -P now
+  187  cat /etc/login.defs
+  188  cd /etc/pam.d
+  189  ls
+  190  grep minlen system-auth-ac
+  191  grep minlen password-auth
+  192  grep minlen password-auth-ac
+  193  cat password-auth-ac
+  194  cat system-auth
+  195  shutdown -P now
+  196  cat /etc/redhat-release
+  197  subscription-manager unregister
+  198  subscription-manager clean
+  199  rpm -Uvh http://spxv04-syssat01.lahsic.com/pub/katello-ca-consumer-latest.noarch.rpm
+  200  subscription-manager register --org="BCBSLA" --activationkey="RHEL7-Prod"
+  201  subscription-manager unregister
+  202  subscription-manager clean
+  203  rpm -Uvh http://spxv04-syssat01.lahsic.com/pub/katello-ca-consumer-latest.noarch.rpm
+  204  subscription-manager register --org="BCBSLA" --activationkey="RHEL7-TestDev"
+  205  subscription-manager repos --enable=rhel-\*-satellite-tools-\*-rpms
+  206  subscription-manager repos --enable rhel-6-server-optional-rpms
+  207  subscription-manager repos --enable rhel-7-server-optional-rpms
+  208  yum -y install katello-agent
+  209  curl https://spxv04-syssat01.lahsic.com:9090/ssh/pubkey >> ~/.ssh/authorized_keys
+  210  cat ~/.ssh/authorized_keys
+  211  subscription-manager list --consumed
+  212  subscription-manager repos --list
+  213  yum clean all
+  214  rm -rf /var/cache/yum
+  215  yum check-update
+  216  subscription-manager unregister
+  217  subscription-manager repos --list
+  218  subscription-manager clean
+  219  shutdown -P now
+  220  vi /etc/login.defs
+  221  hostname
+  222  poweroff
+  223  useradd -c "IDM Admin Account for Linux" -m -d "/nfs/home/unixidmadmin" -u 50152 -U  unixidmadmin
+  224  groupadd -g 70021 admin-idmadmin
+  225  usermod -G admin-idmadmin unixidmadmin
+  226  chage -I -1 -m 0 -M -1 -E -1 unixidmadmin
+  227  chage -I -1 -m -1 -M -1 -E -1 unixidmadmin
+  228  chage -W -1  unixidmadmin
+  229  chage -l unixidmadmin
+  230  passwd unixidmadmin
+  231  last | more
+  232  last
+  233  cat /var/log/messages | grep unixidmadmin
+  234  shutdown -P now
+  235  clear
+  236  passwd root
+  237  exit
+  238  passwd root
+  239  ip a
+  240  nmcli d
+  241  shutdown now
+  242  poweroff
+  243  subscription-manager repos --list
+  244  yum repo list
+  245  yum repolist
+  246  rpm -qa | grep samba
+  247  ip A
+  248  ip a
+  249  cat /etc/realmd.conf
+  250  cd /etc/sssd
+  251  cd /var/log
+  252  ls -ltr
+  253  cat secure
+  254  cat /etc/passwd
+  255  cat secure
+  256  p
+  257  cat /etc/red*
+  258  p
+  259  cd /etc
+  260  ls -l | grep real
+  261  ls -l sss
+  262  ls -l | grep ss
+  263  shutdown -P now
+  264  rpm -qa | grep odd
+  265  ps -ef | grep oddj
+  266  rpm -qa | grep sssd
+  267  p
+  268  rpm -qa | grep krb
+  269  rpm -qa | grep adcli
+  270  p
+  271  rpm -qa | grep realm
+  272  rpm -qa | grep pam
+  273  p
+  274  shutdown -P now
+  275  paswd
+  276  passwd
+  277  shutdown now
+  278  cd /etc/
+  279  ls -l | grep realmd
+  280  ls -l | grep sssd
+  281  mkdir sssd
+  282  ls -l
+  283  ls -l | grep sssd
+  284  ls -l sssd
+  285  ls -l | grep auto
+  286  cat auto.home
+  287  vi  auto.home
+  288  cat auto.master
+  289  vi auto.master
+  290  cat aut.nfs
+  291  auto.nfs
+  292  cat auto.nfs
+  293  vi auto.nfs
+  294  cat auto.nfs
+  295  clear
+  296  cat auto.nfs
+  297  ls -l
+  298  ls -l | grep auto
+  299  vi auto.nfsmisc
+  300  ls -l | grep auto
+  301  cat auto.nfs
+  302  cat auto.home
+  303  cat auto.nfsmisc
+  304  cd sssd
+  305  ls -l
+  306  cp sssd.conf sssd.conf.copyme
+  307  ls -l
+  308  rm -f sssd.conf
+  309  ls -l
+  310  cd ..
+  311  cat nsswitch.conf
+  312  vi nsswitch.conf
+  313  ls -l realmd.conf
+  314  cd /etc
+  315  ls -l realmd.conf
+  316  cat realmd.conf
+  317  cd sssd/
+  318   cat sssd.conf.copyme
+  319   vi sssd.conf.copyme
+  320   cat sssd.conf.copyme
+  321   vi sssd.conf.copyme
+  322  cd ..
+  323  cat nsswitch.conf
+  324  cat auto.nfs
+  325  ls -l | grep auto
+  326  cat auto.master
+  327  vi auto.master
+  328  cp auto.master auto.master.beforeAD
+  329  ls -l | grep auto
+  330  cat auto.master
+  331  cat auauto.master
+  332  cp auauto.master auto.master
+  333  rm -f auauto.master
+  334  ls -l | grep auto.master
+  335  cat auto.master
+  336  vi auto.nfs
+  337  cp auto.nfs auto.nfs.beforeAD
+  338  cat auto.master
+  339  cat auto.nfs
+  340  cat auto.master
+  341  vi auto.home
+  342  cp auto.home auto.home.beforeAD
+  343  cat auto.home
+  344  cat auto.nfsmisc
+  345  vi auto.nfsmisc
+  346  cat auto.nfsmisc
+  347  cat auto.master
+  348  cat auto.nfs
+  349  cat auto.home
+  350  cat auto.nfsmisc
+  351  ls -l | grep auto
+  352  cat /etc/sudo.conf
+  353  cat etc/sudoers
+  354  cat sudoers
+  355  ls -l /etc/sudoers.d
+  356  cd suoders.d
+  357  cd sudoers.d
+  358  rm -f fred
+  359  ls -l
+  360  cat sudoers-bcbsla
+  361  cd ..
+  362  cp -p sudoers sudoers.beforeAD
+  363  ls -l
+  364  visudo
+  365  cat sudoers
+  366  visudo
+  367  cat sudoers
+  368  shutdown
+  369  groupadd -g 600 mfe
+  370  useradd -d / -s /sbin/nologin -u 600 -g 600 mfe
+  371  /nfs/linux/software/mcafee/Linux_5.0.5.agentPackages/install.sh -i
+  372  p
+  373  cd /etc
+  374  vi auto.master
+  375  service autofs restart
+  376  ls -l /nfs
+  377  cd /nfs
+  378  ls -l
+  379  reboot
+  380  ls -l /nfs
+  381  ls -l
+  382  cd /
+  383  cd /nfs
+  384  ls -l
+  385  cd /etc
+  386  cat auto.master
+  387  cat /etc/auto.nfs.beforeAD
+  388  cat /etc/auto.home.beforeAD
+  389  vi auto.master
+  390  cat auto.master
+  391  cat auto.nfs.beforeAD
+  392  service autofs reload
+  393  service autofs -help
+  394  service autofs restart
+  395  service autofs status
+  396  ls -l /nfs
+  397  cd /linuc
+  398  cd /linux
+  399  reboot
+  400  ls -l /nfs/linux
+  401  /nfs/linux/software/mcafee/Linux_5.0.5.agentPackages/install.sh -i
+  402  service cma status
+  403  vi /etc/auto.master
+  404  reboot
+  405  find / -type f -printf '%T+ %p \n' 2>/dev/null | sort | head -n
+  406  find / -type f -printf '%T+ %p \n' 2>/dev/null | sort | head -n 5
+  407  touch /var/McAfee/agent/update/Current/VSCANDAT1000/V2datdet.mcs
+  408  find / -type f -printf '%T+ %p \n' 2>/dev/null | sort | head -n 5
+  409  shutdown
+  410  cd /etc/sssd
+  411  ls -l
+  412  vi s*
+  413  w
+  414  shutdown -P now
+  415  ip a
+  416  systemctl status libvirtd
+  417  shutdown -P now
+  418  realm permit svc-snw-discolxad
+  419  cd /et/sssd
+  420  cd /etc/sssd
+  421  ls -l
+  422  vi sssd.conf.copyme
+  423  p
+  424  cat /etc/sudoers.d/sudoers-bcbsla
+  425  cat /etc/sudoers
+  426  cat /etc/sudoers | grep unix
+  427  cat /etc/sudoers.d/sudoers-bcbsla | grep sudoers
+  428  cat /etc/sudoers.d/sudoers-bcbsla | grep unix
+  429  cat /etc/sssd/sssd.conf.copyme
+  430  vi /etc/sssd/sssd.conf.copyme
+  431  cat /etc/sssd/sssd.conf.copyme
+  432  cd /etc/skell
+  433  cd /etc/skel
+  434  ls -la
+  435  cat .bash_profile
+  436  shutdown -P now
+  437  service cma status
+  438  df -h
+  439  df -h /usr
+  440  df -h
+  441  vgs
+  442  df -h
+  443  ip a
+  444  CD /ETC/SYSCONFIG/NETWORK-S*
+  445  cd /etc/sysconfig/network-s*
+  446  unalias ls
+  447  ls
+  448  mv ifcfg-eno16780032 ifcfg-ens192
+  449  vi ifcfg-ens192
+  450  systemctl restart network
+  451  df -h
+  452  df -h
+  453  man lvresize
+  454  lvresize -r -L+256M /dev/mapper/rootvg-usrlv
+  455  df -h
+  456  subscription-manager clean
+  457  rpm -Uvh http://spxv04-syssat01.lahsic.com/pub/katello-ca-consumer-latest.noarch.rpm
+  458  subscription-manager register --org="BCBSLA" --activationkey="RHEL7-TestDev"
+  459  subscription-manager repos --enable=rhel-\*-satellite-tools-\*-rpms
+  460  subscription-manager repos --enable rhel-7-server-optional-rpms
+  461  subscription-manager repos --enable rhel-7-server-extras-rpms
+  462  yum -y install katello-agent
+  463  cd .ssh
+  464  vi a*
+  465  subscription-manager list --consumed
+  466  subscription-manager repos --list
+  467  yum clean all
+  468  rm -rf /var/cache/yum
+  469  yum update
+  470  reboot
+  471  ps -ef | grep cat
+  472  top
+  473  kill 10108
+  474  kill -9 10108
+  475  ip a
+  476  ifconfig ens192 down
+  477  ip a
+  478  clear
+  479  ip a
+  480  cd /etc/sysconfig/network-s*
+  481  ls
+  482  rm -f ifcfg-ens192
+  483  ls
+  484  shutdown -P now
+  485  subscription-manager unregister
+  486  subscription-manager -f unregister
+  487  subscription-manager list --consumed
+  488  man subscription-manager
+  489  subscription-manager clean
+  490  subscription-manager list --consumed
+  491  shutdown -P now
+  492  cat /etc/passwd
+  493  cat /etc/group
+  494  /opy/isec/ens/threatprevention/bin/uninstall-isecp.sh silent
+  495  /opt/isec/ens/threatprevention/bin/uninstall-isecp.sh silent
+  496  ls -l /opt
+  497  ls -l /opt/isec
+  498  ls -l /opt/isec/ens
+  499  ls -l /opt/isec/ens/t*
+  500  ls -l /opt/isec/ens/t*/bin
+  501  /opt/isec/ens/threatprevention/bin/uninstall-isectp.sh silent
+  502  yum remove MFEcma MFErt
+  503  rpm -qa | grep -i mf
+  504  cat /etc/passwd
+  505  ls -l /opt
+  506  cat /etc/init.d
+  507  ls -ltr /etc/init.d
+  508  /usr/local/avamar/etc/avagent.d stop
+  509  /usr/local/avamar/etc/avagent.d unactivate
+  510  /usr/local/avamar/etc/avagent.d unregister
+  511  rpm -qa | grep -i avamar
+  512  yum remove AvamarClient
+  513  ls -l /opt
+  514  ls -l /opt/M*
+  515  rm -rf /opt/McAfee
+  516  ls -l /opt/M*
+  517  ls -l /opt
+  518  /opt/CMAgent/uninstall/UninstallCMAgent
+  519  cat /etc/passwd
+  520  ls -l /opt
+  521  ls -l /opt/C*
+  522  ls -lr /opt/C*
+  523  ls -lR /opt/C*
+  524  rm -rf /opt/CMAgent
+  525  ls -lR /opt/C*
+  526  ls -l /opt
+  527  exit
+  528  cd /opt
+  529  ls
+  530  cd /etc/passwd
+  531  cat /etc/passwd
+  532  cat /etc/group
+  533  man groupdel
+  534  groupdel cfgsoft
+  535  userdel csi_acct
+  536  groupdel csi_acct
+  537  cat /etc/passwd
+  538  cat /etc/group
+  539  cat /etc/passwd
+  540  shutdown -Pnow
+  541  shutdown -P now
+  542  ip a
+  543  cd /etc/sysconfig/network-scripts
+  544  ls
+  545  ls -l
+  546  ls
+  547  ip a
+  548  ls -l
+  549  systemctl restart network
+  550  ls
+  551  reboot
+  552  cat /etc/redh*
+  553  subscription-manager unregister
+  554  subscription-manager clean
+  555  rpm -Uvh http://spxv04-syssat01.lahsic.com/pub/katello-ca-consumer-latest.noarch.rpm
+  556  subscription-manager register --org="BCBSLA" --activationkey="RHEL7-TestDev"
+  557  subscription-manager repos --enable=rhel-\*-satellite-tools-\*-rpms
+  558  yum -y install katello-agent
+  559  cat ~/.ssh/authorized_keys
+  560  subscription-manager repos --enable rhel-7-server-optional-rpms
+  561  subscription-manager repos --enable rhel-7-server-extras-rpms
+  562  subscription-manager repos --list
+  563  subscription-manager list --consumed
+  564  yum clean all
+  565  rm -rf /var/cache/yum
+  566  subscription-manager release
+  567  yum -y update
+  568  cat /etc/redhat*
+  569  reboot
+  570  cat /var/log/messages
+  571  cat /etc/redhat-release
+  572  subscription-manager unregister
+  573  subscription-manager clean
+  574  ip a
+  575  cat /etc/hostname
+  576  cat /etc/resolv.vonf
+  577  cat /etc/resolv.conf
+  578  cd /etc/sysconfig
+  579  cat network
+  580  cd network-scripts
+  581  ls -l
+  582  man ip
+  583  ip a
+  584  ip link set ens192 down
+  585  ip a
+  586  ls
+  587  mv ifcfg-Ethernet_connection_1 copyme-ifcfg-ens192
+  588  ls -l
+  589  ls
+  590  unalias ls
+  591  ls
+  592  cat *2
+  593  ip a
+  594  shutdown -P now
+  595  ip a
+  596  cd /etc/sysconfig/network-scripts
+  597  ls -l
+  598  ip a
+  599  cat copyme-ifcfg-ens192
+  600  cp -p copyme-ifcfg-ens192 ifcfg-ens192
+  601  systemctl restart network
+  602  ip a
+  603  cat /etc/redha*
+  604  cat /etc/redhat-release
+  605  subscription-manager unregister
+  606  subscription-manager clean
+  607  rpm -Uvh http://spxv04-syssat01.lahsic.com/pub/katello-ca-consumer-latest.noarch.rpm
+  608  subscription-manager register --org="BCBSLA" --activationkey=""RHEL7-TestStage"
+  609  subscription-manager register --org="BCBSLA" --activationkey="RHEL7-TestStage"
+  610  subscription-manager repos --enable=rhel-\*-satellite-tools-\*-rpms
+  611  yum -y install katello-agent
+  612  subscription-manager list --consumed
+  613  subscription-manager repos --list
+  614  subscription-manager repos --enable rhel-7-server-optional-rpms
+  615  subscription-manager repos --enable rhel-7-server-extras-rpms
+  616  subscription-manager repos --list
+  617  df -h
+  618  yum clean all
+  619  rm -rf /var/cache/yum
+  620  yum update
+  621  reboot
+  622  history
+  623  cat /etc/redhat-release
+  624  df -h
+  625   yum clean all
+  626  rm -rf /var/cache/yum
+  627  yum update
+  628  systemctl status puppet
+  629  cd /var/sysconfig/\
+  630  cd /var/sysconfig/
+  631  cd /etc/sysconfig
+  632  cat network
+  633  cd network-scripts
+  634  ls -ltr
+  635  vi copyme-ifcfg-ens192
+  636  exit
+  637  cd /etc/sysconfig/network-scripts
+  638  ls -ltr
+  639  cat co*
+  640  ip
+  641  ip a
+  642  ifconfig ens192 down
+  643  ip a
+  644  ls -l
+  645  rm -f ifcfg-ens192
+  646  ip a
+  647  reboot
+  648  ip a
+  649  exit
+  650  ip a
+  651  cd /etc/sysconfig/network-scripts
+  652  ls
+  653  cp -p copyme-ifcfg-ens192 ifcfg-ens192
+  654  cat copyme-ifcfg-ens192
+  655  systemctl restart network
+  656  cat /etc/realmd.conf
+  657  ls -l /etc/sssd
+  658  cat /etc/sssd/*
+  659  ls -l /etc | grep nssw
+  660  /usr/sbin/subscription-manager register --force --org="BCBSLA" --activationkey=RHEL7-Development
+  661   /usr/sbin/subscription-manager repos --enable=rhel-\*-satellite-tools-\*-rpms --enable rhel-7-server-optional-rpms --enable rhel-7-server-extras-rpms
+  662  subscription-manager repos --list
+  663  yum clean cache
+  664  yum clear c
+  665  yum clean
+  666  yum clean all
+  667  rm -rf /var/cache/yum
+  668  yum -y update
+  669  df -h
+  670  vgs
+  671  df -m
+  672  df -g
+  673  df -k
+  674  history | grep lvre
+  675  df -h
+  676  lvresize -r -L+128M /dev/mapper/rootvg-usrlv
+  677  df -h
+  678  lvresize -r -L+128M /dev/mapper/rootvg-usrlv
+  679  df -h
+  680  yum clean all
+  681  df -h
+  682  yum -y update
+  683  df -h
+  684  reboot
+  685  cd /etc/sysconfig/network-scripts
+  686  ls
+  687  ip a
+  688  ip link set dev ens192 down
+  689  ip a
+  690  sysctl stop network
+  691  systemctl stop network
+  692  ip a
+  693  ls
+  694  rm -f ifcfg-ens192
+  695  ls -l
+  696  shutdown -P now
+  697  subscription-manager status
+  698  cd /etc/sysconfig/network-scripts
+  699  ls
+  700  cp -p copyme-ifcfg-ens192 ifcfg-ens192
+  701  systemctl start network
+  702  ip a
+  703  history | grep subsc
+  704  /usr/sbin/subscription-manager register --force --org="BCBSLA" --activationkey=RHEL7-Development
+  705  ip a
+  706  ls -l
+  707  systemctl status network
+  708  ip a
+  709  ls -l
+  710  cat ifcfg-ens192
+  711  vi copyme-ifcfg-ens192
+  712  cp -p copyme-ifcfg-ens192 ifcfg-ens192
+  713  cat ifcfg-ens192
+  714  systemctl start network
+  715  ip a
+  716  ls -l
+  717  reboot
+  718  history
+  719  /usr/sbin/subscription-manager register --force --org="BCBSLA" --activationkey=RHEL7-Development
+  720  subscription-manager repos --list
+  721  yum whatprovides puppet
+  722  yum check-update
+  723  subscription-manager repos --list
+  724  subscription-manager repos --enable=rhel-7-server-satellite-tools-6.3-puppet4-rpms
+  725  yum install puppet-agent
+  726  cp -rp /var/lib/puppet/ssl /etc/puppetlabs/puppet/
+  727  subscription-manager repos --enable=rhel-7-server-satellite-tools-6.3-rpms
+  728  yum update
+  729  puppet agent -t
+  730  cp -rf /etc/puppet/puppet.conf.rpmsave /etc/puppetlabs/puppet/puppet.conf
+  731  sed -i 's|/var/lib/puppet|/opt/puppetlabs/puppet/cache|' /etc/puppetlabs/puppet/puppet.conf
+  732  sed -i 's|/var/log/puppet|/var/log/puppetlabs/puppet|' /etc/puppetlabs/puppet/puppet.conf
+  733  sed -i 's|/var/run/puppet|/var/run/puppetlabs|' /etc/puppetlabs/puppet/puppet.conf
+  734  sed -i 's|$vardir/ssl|/etc/puppetlabs/puppet/ssl|' /etc/puppetlabs/puppet/puppet.conf
+  735  service puppet restart
+  736  puppet agent -t
+  737  service puppet start
+  738  service puppet status
+  739  history | grep ip
+  740  ip link set dev ens192 down
+  741  ip a
+  742  clear
+  743  ip a
+  744  clear
+  745  ip a
+  746  cd /etc/sysconfig/network-scripts
+  747  ls -l
+  748  rm -f ifcfg-ens192
+  749  shutdown -P now
+  750  ip link set dev ens192 down
+  751  ip a
+  752  clear
+  753  ip a
+  754  clear
+  755  ip a
+  756  cd /etc/sysconfig/network-scripts
+  757  ls -l
+  758  rm -f ifcfg-ens192
+  759  shutdown -P now
+  760  cd /etc/puppetlabs
+  761  ls
+  762  cd puppet
+  763  ls
+  764  find . -name rhel72-vbc.lahsic.com.pwm
+  765  find . -name rhel72-vbc.lahsic.com.pem
+  766  find . -name rhel72-vbc.lahsic.com.pem -delete
+  767  find . -name rhel72-vbc.lahsic.com.pem
+  768  find . -ls
+  769  ipa
+  770  ip a
+  771  shutdown -P now
+  772  cd /etc/sysconfig/network-scripts
+  773  ls
+  774  cp -p copyme-ifcfg-ens192 ifcfg-ens192
+  775  systemctl restart network
+  776  df
+  777  df -h
+  778  vgs
+  779  lvresize -r -L+2048M /dev/mapper/rootvg-varlv
+  780  df -h
+  781  /usr/sbin/subscription-manager register --force --org="BCBSLA" --activationkey="RHEL7-Development"
+  782  /usr/sbin/subscription-manager repos --enable=rhel-\*-satellite-tools-\*-rpms --enable rhel-7-server-optional-rpms --enable rhel-7-server-extras-rpms
+  783  yum clean all
+  784  rm -rf /var/cache/yum
+  785  yum -y update
+  786  yum clean all
+  787  ps -ef | grep 3435
+  788  kill -9 3435
+  789  ps -ef | grep 3435
+  790  cat /var/log/yum.log
+  791  df -h
+  792  yum clean all
+  793  rm -rf /var/cache/yum
+  794  yum check-update
+  795  df -h
+  796  /usr/sbin/subscription-manager unregister
+  797  /usr/sbin/subscription-manager clean all
+  798  /usr/sbin/subscription-manager clear all
+  799  /usr/sbin/subscription-manager clean
+  800  shutdown -P now
+  801  history | grep ip
+  802  ip a
+  803  ip link set dev ens192 down
+  804  ip a
+  805  shutdown -P now
+  806  history
+  807  /usr/sbin/subscription-manager unregister
+  808  /usr/sbin/subscription-manager clear all
+  809  /usr/sbin/subscription-manager clean
+  810  history
+  811  /usr/sbin/subscription-manager register --force --org="BCBSLA" --activationkey="RHEL7-Development"
+  812  /usr/sbin/subscription-manager repos --enable=rhel-\*-satellite-tools-\*-rpms --enable rhel-7-server-optional-rpms --enable rhel-7-server-extras-rpms
+  813  /usr/sbin/subscription-manager repos --list
+  814  history
+  815  yum clean all
+  816  rm -rf /var/cache/yum
+  817  /usr/sbin/subscription-manager release
+  818  cat /etc/redhat-release
+  819  ds -h
+  820  df -h
+  821  yum update
+  822  echo $?
+  823  reboot
+  824  df -h
+  825  history | grep subsc
+  826  cd /etc/sysconfig/network-scripts
+  827  ls -l
+  828  cat ifcfg-ens192
+  829  ip a
+  830  history
+  831  yum clean all
+  832  ip a
+  833  history
+  834  rm -rf /var/cache/yum
+  835  ip a
+  836  shutdown -P now
+  837  history
+  838  df -h
+  839  yum clean all
+  840  rm -rf /var/cache/yum
+  841  /usr/sbin/subscription-manager release
+  842  cat /etc/redhat-release
+  843  yum update
+  844  yum clean all
+  845  rm -rf /var/cache/yum
+  846  history | grep subscr*
+  847  /usr/sbin/subscription-manager unregister
+  848  /usr/sbin/subscription-manager clean
+  849  /usr/sbin/subscription-manager status
+  850  ip a
+  851  history | grep ip
+  852  ip link set dev ens192 down
+  853  ip a
+  854  history | grep 192
+  855  ip link set dev ens192 down
+  856  ip a
+  857  ip link set dev ens192 down
+  858  ip a
+  859  cd /etc/sysconfig/network-sc*
+  860  ls -l
+  861  ip a
+  862  rm -f ifcfg-ens192
+  863  ip a
+  864  shutdown -P now
+  865  ip a
+  866  exit
+  867  reboot
+  868  abrt-cli list --since 1543856951
+  869  shutdown -P now
+  870  ip a
+  871  ip link delete ens192
+  872  cat /etc/redhat-release
+  873  rpm -Uvh http://spxv04-syssat01.lahsic.com/pub/katello-ca-consumer-latest.noarch.rpm
+  874  subscription-manager register --force --org="BCBSLA" --activationkey=RHEL7-Development
+  875  ip a
+  876  cd /etc/sysconfig/network-scripts
+  877  ls
+  878  cp -p copyme-ifcfg-ens192 ifcfg-ens192
+  879  vi ifcfg-ens192
+  880  systemctl restart network
+  881  history
+  882  subscription-manager repos --enable=rhel-\*-satellite-tools-\*-rpms --enable rhel-7-server-optional-rpms --enable rhel-7-server-extras-rpms
+  883  subscription-manager repos --list
+  884  yum -y install katello-agent
+  885  yum clean all
+  886  rm -rf /var/cache-yum
+  887  yum -y update
+  888  yum clean all
+  889  rm -rf /var/cache-yum
+  890  yum -y update
+  891  reboot
+  892  ip a
+  893  man groupadd
+  894   groupadd -g 1000 serveradmin
+  895  cat /etc/group
+  896  man useradd
+  897  useradd -u 1000 -g 1000 serveradmin
+  898  chage -l serveradmin
+  899  cd /etc/sudoers.d
+  900  sl -l
+  901  ls -l
+  902  cat sudoers-bcbsla
+  903  rm -f sudoers-bcbsla
+  904  ls -l
+  905  chage --mindays 0 --maxdays -1 --warndays -1 serveradmin
+  906  chage -l serveradmin
+  907  passwd serveradmin
+  908  cat /etc/shadow
+  909  cat /etc/nsswitch
+  910  cat /etc/nsswitch.conf
+  911  vi /etc/nsswitch.conf
+  912  cat /etc/nsswitch.conf
+  913  visudo
+  914  grep -v"^#" /etc/sudoers
+  915  grep -v"#" /etc/sudoers
+  916  grep -v "^#" /etc/sudoers
+  917  visudo
+  918  grep -v "^#" /etc/sudoers
+  919  visudo
+  920  su - serveradmin
+  921  visudo
+  922  vi /etc/sudoers.d/sudoers-bcbsla
+  923  ls -l /etc/sudoers.d/sudoers-bcbsla
+  924  visudo
+  925  grep -v "^#" /etc/sudoers
+  926  su - serveradmin
+  927  visudo
+  928  ls -l /etc/sudoers.d
+  929  cat /etc/sudoers.d/*
+  930  cat /etc/nsswitch.conf
+  931  su - serveradmin
+  932  vi /etc/nsswitch.conf
+  933  cat /etc/nsswitch.conf
+  934  su - serveradmin
+  935  vi /etc/nsswitch.conf
+  936  su - serveradmin
+  937  faillock
+  938  vi /etc/nsswitch.conf
+  939  visudo
+  940  vi /etc/nsswitch.conf
+  941  vi /etc/sudoers.d/sudoers-bcbsla.tmp
+  942  visudo
+  943  vi /etc/sudoers.d/sudoers-bcbsla
+  944  visudo
+  945  cat /etc/nsswitch.conf
+  946  visudo
+  947  yum clear all
+  948  rm -f /var/cache/yum
+  949  rm -rf /var/cache/yum
+  950  yum clean all
+  951  subscription-manager unregister
+  952  subscription-manager clean
+  953  systemctl stop network
+  954  ip a
+  955  cd /etc/sysconfig/network-scripts
+  956  sl -l
+  957  ls -l
+  958  rm -f ifcfg-ens192
+  959  ip a
+  960  ifconfig ens192 down
+  961  ip a
+  962  ip link ens192 delete
+  963  ifconfig ens192 delete
+  964  ifconfig ens192 remove
+  965  ifconfig -a
+  966  ip a
+  967  man ifconfig
+  968  ip link delete ens192
+  969  ip a
+  970  cp -p copyme-ifcfg-ens192 ifcfg-ens192
+  971  systemctl restart network
+  972  ip a
+  973  ifconfig ens192 down
+  974  rm -f ifcfg-ens192
+  975  ip a
+  976  shutdown -P now
+
+
+Volume group , logical group an mount point and 100GB disk 
+
+  977  df -h
+  978  lsblk
+  979  pvcreate /dev/sdb
+  980  pvs
+  981  vgcreate --h
+  982  vgs
+  983  vgcreate -s 512M 02threadstreamvg /dev/sdb
+  984  vgs
+  985  vgrename 02threadstreamvg 02threatstreamvg
+  986  vgs
+  987  lsblk
+  988  vgscan
+  989  lvcreate -L 100G -n threatstreamlv 02threatstreamvg
+  990  lvs
+  991  lvscan
+  992  lsblk
+  993  mkfs.xfs /dev/mapper/02threatstreamvg-threatstreamlv
+  994  lsblk
+  995  mkdir /opt/threatstream
+  996  vim /etc/fstab
+  997  mount -a
+  998  partprobe
+  999  df -h
+ 1000  shutdown -r now
+ 1001  history
+[root@sec-prod-ancti2 ~]#
+
+
+
+Expanding RHEL VM Volumes
+1. Open Vsphere
+2. Find the VM and select Edit Settings
+3. Select the hard disk you would like to extend
+4. Connect to the command line of the Linux VM via the console or putty session
+5. Log in as your E Number
+6. Type "Sudo su"
+	This will put you into a root environment but it will ask you for your user password instead of the root password (once sudo has given you root privileges, su - can be executed with no password)., 
+7. Type "fdisk -l"
+	The fdisk command provides disk partitioning functions and using it with the -l switch lists information about your disk partitions. The response should say something like Disk /dev/sda : xxGB.
+8. Verify PreScan Environment with the following:
+	vgs
+	Lvs
+	Pvs
+9. Type "echo 1 > /sys/block/sdb/device/rescan"
+	We have to send “1” to /sys/class/block/XYZ/device/rescan to respective SCSI block device to refresh device information like size. So this will be helpful here since our device is already identified by kernel but we want kernel to re-read its new size and update itself accordingly.
+10. Type "fdisk -l", Verify Post-Scan Environment
+11. Type "pvresize /dev/sdb"
+	To Resize (extend) the Physical Volume to utilize all available space on the device
+12. Verify Post-Resize Environment with the following:
+	fdisk -l
+	vgs
+	lvs
+	pvs
+	13. By typing "lvextend -L+[freespace]G -r /dev/volgroup/volume"
+	Extend the logical volume by the amount of free space shown in the previous step
+	example "lvextend -L +750G -r /dev/mapper/02opt_splunkvg-opt_splunklv"
+14. Type "df -h"
+	Verify the Volume is expanded
+

@@ -1,0 +1,74 @@
+echo "dis chs(WCS.OMS.SVRCONN)" |runmqsc ECOMDR71 |grep "CONNAME" |sort -n |uniq -c  -----Connection details to Queue manager
+
+echo "dis chs(BLUEXCHT.SVR)" |runmqsc BLUEXCHT |grep "CONNAME" |sort -n |uniq -c
+
+echo "dis chs(*)" |runmqsc APPCQ01 |grep "CONNAME" |sort -n |wc -l ---- current connections to QMGR
+
+echo "dis chs(*)" |runmqsc BLUEXCHT |grep "CONNAME" |sort -n |wc -l
+
+netstat -an |grep port-num |wc -l -Queue manager port connections on server level
+
+
+
+echo "dis conn(*) where (conname lk '166.13.108.91*')type(all)" |runmqsc qmgr |grep OBJNAME |egrep -v "OBJTYPE\(QMGR\)" |awk '{print $1}' |sort -n |uniq -c
+
+----to check which channel and how many times channel is connected to ip address 
+
+dis conn(*) where (conname lk '10.184.1.146*')type(all)" 
+
+echo "dis conn(*) where (conname lk '10.184.1.146*') type(all)" |runmqsc BLUEXCHT |grep BIZTALK.RT.BLUEXCH |egrep -v "OBJTYPE\(BLUEXCHT\)" |awk '{print $1}' |sort -n |uniq -c
+
+
+AMQ8276: Display Connection details.
+   CONN(39282B5D10981C21)
+   EXTCONN(414D5143424C55455843485420202020)
+   TYPE(*)
+   PID(19589)                              TID(267)
+   APPLDESC(WebSphere MQ Channel)
+   APPLTAG(erver 2013 R2\BTSNTSvc64.exe)
+   APPLTYPE(USER)                          ASTATE(STARTED)
+   CHANNEL(BLUEXCHT.SVR)                   CLIENTID( )
+   CONNAME(10.184.1.146)
+   CONNOPTS(MQCNO_HANDLE_SHARE_BLOCK,MQCNO_SHARED_BINDING)
+   USERID(stg-btmq)                        UOWLOG( )
+   UOWSTDA( )                              UOWSTTI( )
+   UOWLOGDA( )                             UOWLOGTI( )
+   URTYPE(QMGR)
+   EXTURID(XA_FORMATID[] XA_GTRID[] XA_BQUAL[])
+   QMURID(0.0)                             UOWSTATE(NONE)
+
+   OBJNAME(BLUEXCHT)                       OBJTYPE(QMGR)
+   ASTATE(NONE)                            HSTATE(INACTIVE)
+   OPENOPTS(MQOO_INQUIRE)                  READA(NO)
+
+   OBJNAME(BIZTALK.RT.BLUEXCH)             OBJTYPE(QUEUE)
+   ASTATE(ACTIVE)                          HSTATE(ACTIVE)
+   OPENOPTS(MQOO_INPUT_SHARED,MQOO_BROWSE,MQOO_INQUIRE,MQOO_FAIL_IF_QUIESCING)
+   READA(NO)
+
+
+echo "dis conn(*) where (conname lk 'connectionid*')type(all)" |runmqsc qmgr |grep OBJNAME |egrep -v "OBJTYPE\(QMGR\)" |awk '{print $1}' |sort -n |uniq -c
+
+---- to find queues related to ip address
+
+
+
+
+
+
+echo "dis chs(OMS.SVRCONN)" |runmqsc OMSAPPQA |grep "CONNAME" |sort -n |uniq -c  -----Connection details to Queue manager
+
+
+echo "dis chs(*)" |runmqsc OMSAPPQA |grep "CONNAME" |sort -n |wc -l ---- current connections to QMGR
+
+netstat -an |grep port-num |wc -l
+
+
+
+echo "dis conn(*) where (conname lk '10.1.72.44*') type(all)" |runmqsc OMSAPPQA |grep OBJNAME |egrep -v "OBJTYPE\(OMSAPPQA\)" |awk '{print $1}' |sort -n |uniq -c
+
+----to check which channel and how many times channel is connected to ip address 
+
+
+
+echo "dis conn(*) where (conname lk '10.184.1.146*') type(all)" |runmqsc BLUEXCHT |grep OBJNAME |egrep -v "OBJTYPE\(BLUEXCHT\)" |awk '{print $1}' |sort -n |uniq -c

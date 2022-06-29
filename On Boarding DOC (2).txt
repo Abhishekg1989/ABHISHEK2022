@@ -1,0 +1,324 @@
+putty - done
+Timesheet (Beeline, Service now, tech mahindra) - done
+winscp -done
+ODC access - done ( CS apps portal)
+Secondary access - done
+beeline password reset - done
+Tasks on incidents -done
+Signature-done
+MQ Documents -share point - done
+mails archieve- done
+Daily Activites-done
+Listeners
+command servers
+MQ objects
+channel status
+queue curdepth
+DLQ
+uncommited messages 
+Indoubt transactions 
+VDI persistent - done
+-----------------------------------------------
+
+
+
+Service Now Tool
+MQ documents by Ramesh
+
+
+
+MY ID C71008 should be created on all MQ servers
+MQ explorer
+Landline number for me
+DEV server access
+
+Service now KT
+
+Queue name standard – can we implement a prefix for queues? For example QL.BZTK (Queue Local BizTalk)
+Log type – make decision between linear and circular logging.
+Backup and recovery – implement a backup/recovery solution … determine its dependence on the log type that is chosen.
+Requests for QM builds – ServiceNow requests? Any format for the request?
+How to get messages from legacy QMs to new environment - qload and dmpmqmsg for migrating messages from qm1 to qm2?
+Single Point of Failure with NFS server – want to use NFS device in the future or ESX fault tolerance configuration.
+
+
+
+MQ visio designs 
+Migration document
+Service now document ( changes and SLA)
+MQ Monitoring 
+Comeplete excel sheet with MQ details 
+
+DEUFTP01
+DEUFTP02
+T
+P
+
+
+C71008@lahsic.com
+
+
+                                     
+   
+
+Following ServiceNow tickets are in progress for Robert Ayala’s approval and he will reach out to you for additional approvals:
+Secondary                                           -              RITM0337375
+CAG                                                      -              RITM0337376
+SNOW group                                      -              RITM0337374
+Persistent VDI                                  -              RITM0337381 :)
+
+Thanks,
+Abhishek Govindu
+CW Network System Engineer
+Tech Mahindra Contractor  
++(91)7799117242
+
+
+[mqm@spxv00-wmqmqm02 ~]$ dspmqtrn -m BLUEXCH
+AMQ7056: Transaction number 0,1 is in-doubt.
+
+    XID: formatID 4478019, gtrid_length 16, bqual_length 48
+         gtrid [1581AB8F95BCF840B72A6AD25F4FA933]
+         bqual [94A769A39DB88747A8EFE76A814650F6DCA194F62192ED4A9C00DA65D1C192BE5628683134B2784D9256211EA908E9B6]
+
+amqldmpa -m QMGR-NAME -c A -o 2 -f/tmp/atm
+amqldmpa -m QMGR-NAME -c K -d 3 -f /tmp/kern
+
+amqldmpa -m BLUEXCH -c A -o 2 -f /tmp/atm123
+
+
+
+
+
+MQCSD - MQ connection security parameter
+mqccred is a security exit configured at MQ.
+
+
+AMQ8414: Display Channel details.
+   CHANNEL(EDFSITBTSB.SVR)                 CHLTYPE(CLNTCONN)
+   AFFINITY(PREFERRED)                     ALTDATE(2016-11-28)
+   ALTTIME(12.10.32)                       CERTLABL( )
+   CLNTWGHT(0)                             COMPHDR(NONE)
+   COMPMSG(NONE)                           CONNAME(stxv00-wmqmqm(30010))
+   DEFRECON(NO)                            DESCR( )
+   HBINT(300)                              KAINT(AUTO)
+   LOCLADDR( )                             MAXMSGL(104857600)
+   MODENAME( )                             PASSWORD( )
+   QMNAME(EDFSITBTSB)                      RCVDATA( )
+   RCVEXIT( )                              SCYDATA(ERROR,DEBUG,NOCHECKS)
+   SCYEXIT(mqccred(ChlExit))               SENDDATA( )
+   SENDEXIT( )                             SHARECNV(10)
+   SSLCIPH( )                              SSLPEER( )
+   TPNAME( )                               TRPTYPE(TCP)
+   USERID( )
+
+
+
+echo "DEFINE LISTENER (LISTENER.TCP) TRPTYPE(TCP) CONTROL(QMGR) PORT($PORT)" | runmqsc $QMGR
+
+echo "DEFINE CHANNEL(SYSTEM.ADMIN.SVRCONN) CHLTYPE(SVRCONN) TRPTYPE(TCP) DESCR('Channel used for MQ Explorer conntections')" | runmqsc $QMGR
+
+echo "DEFINE CHANNEL($QMGR.SVR) CHLTYPE(SVRCONN) TRPTYPE(TCP) DESCR('Channel used for client conntections')" | runmqsc $QMGR
+
+
+putty - done
+Timesheet (Beeline, Service now, tech mahindra) - done
+winscp -done
+ODC access - done ( CS apps portal)
+Secondary access - done
+beeline password reset - done
+Tasks on incidents -done
+Signature-done
+VDI persistent-done
+Service Now Tool
+MQ Documents -share point
+MQ documents by Ramesh
+
+
+
+
+
+Daily Activites
+mails archieve
+MY ID C71008 should be created on all MQ servers
+
+
+
+
+
+MQ explorer
+Landline number for me
+DEV server access
+Service now KT
+
+
+
+MQ visio designs 
+Migration document
+Service now document ( changes and SLA)
+MQ Monitoring 
+Comeplete excel sheet with MQ details 
+MQ cronjob and scripts for daily activities 
+
+DEUFTP01
+DEUFTP02
+T
+P
+
+                                     
+   
+
+Following ServiceNow tickets are in progress for Robert Ayala’s approval and he will reach out to you for additional approvals:
+Secondary                                           -              RITM0337375
+CAG                                                      -              RITM0337376
+SNOW group                                      -              RITM0337374
+Persistent VDI                                  -              RITM0337381 :)
+
+Thanks,
+Abhishek Govindu
+CW Network System Engineer
+Tech Mahindra Contractor  
++(91)7799117242
+
+
+
+==================================================================
+How can I have the MQ server authenticate the user that provided in the MQCSP?
+I have add "ChlauthEarlyAdopt=Y" in qm.ini
+
+Check the connauth
+
+dis qmgr connauth
+dis qmgr CHLAUTH
+
+ALTER qmgr CHLAUTH(DISABLED)
+ALTER QMGR CONNAUTH( ' ')
+dis authinfo(*)
+
+dis authinfo(<authinfo name>)
+dis chlauth(<chlauth name>)
+
+set : is the command used to change the channelauth parameters
+
+dspmq -m $1
+dspmqcsv  $1
+dspmqtrn -m $1
+echo "DISPLAY LSSTATUS(*)" | runmqsc $1
+echo "DISPLAY CHSTATUS(*)" | runmqsc $1
+echo "dis ql(*) where (CURDEPTH GT 0)" | runmqsc $1
+df -h /wmq/9100/
+
+
+
+Daily Activity
+? Checking the health status of queue manager
+? Checking the command server status
+? Checking the listener status of all the queue manager
+? Checking the file system limit of all the MQ servers
+? Checking the FDC, whether there are any new errors in the queue manager
+? Checking the error log of respective queue manager
+? Checking the active status of all the important channels of all the queue manager
+? Checking the size limit of important queues in the queue manager
+? Closely monitoring the dead letter queue
+? Steps to monitor during patching activity, I think I have added those in one Note already
+
+
+./amqsrua -m TEST1
+
+dspmqtrn -m EDFPRDBTSB
+dspmq -m <Queue Manager >
+dspmqcsv <QueueManager>
+ps -ef | grep EDFSITBTSRT | grep runmqlsr
+
+
+•	Description: General Request
+•	Opened on: Monday, Aug. 12
+•	Reference number: RITM0345555
+
+==============================================================================
+./crtmqinst -d "IMQ 9.1.0.0" -n 9100 -p /wmq/9100
+
+ 81  ./crtmqinst -d
+   82  ./crtmqinst -d "IMQ 9.1.0.0" -n 9100 -p /wmq/9100
+   83  su - mqm
+   84  ./setmqinst -d "IMQ 9.1.0.0" -n Installation1
+   85  ./dspmqinst
+=============================================================================
+
+amqldmpa -c K -d 8 -m <qmgr> -f <output file name> – To know about the complete Queue Manager connection Details
+amqldmpa -c K -d 8 -m TEST1 -f /tmp/TEST1.out - 
+
+==============================================================
+We can get the active channel count details for a particular queue manager using the following shell script
+
+runmqsc $1 << EOF|grep -i “STATUS(“|wc -l
+
+dis chs(*)
+
+end
+
+EOF
+
+Save the above shell commands into total_mq_channel_count.sh file and execute the shell program as below.
+
+$./total_mq_channel_count.sh <Queue Manager Name>
+
+This command will give the total active connection to the queue manager. If we see the number of channel count increase day by day then we can conclude that, there might be issue with the IBM MQ client program
+
+runmqsc $1 << EOF|grep -i “STATUS(“|wc -l
+
+=============================================================================================================
+
+Multi instance queue manager:
+
+https://www.ibm.com/support/knowledgecenter/SSFKSJ_7.5.0/com.ibm.mq.pla.doc/q005820_.htm
+http://www-01.ibm.com/support/docview.wss?uid=swg21446194
+
+===============================================================================================
+
+
+[mqm@wmq-devo-mqm001 scripts]$ pwd
+/nfs/imq/mqm/scripts
+
+=========================================================
+
+dmpmqcfg -m <qmgr > -t all -a -o setmqaut -x authrec  
+
+=============================================================
+dmpmqcfg -m EDFSITBTSB-t all -a > /tmp/EDSITBTSB.OUT
+====================================================
+ dmpmqcfg -m PXDEVAPP01 -t all -a -o setmqaut > /tmp/PXDEVAPP01.AUTH                                            
+
+dmpmqaut -m PXDEVAPP01 -n PXLT.CICSPD01.SRVC1.REP1 -t q -p pxtstusr
+dspmqaut -m PXDEVAPP01 -n PXLT.CICSPD01.SRVC1.REP1 -t q -p pxtstusr
+
+ 1074  ./amqsbcg SYSTEM.ADMIN.CONFIG.EVENT FADEVACCUM . /tmp/SYSTEM.ADMIN.CONFIG.EVENT.out
+ 1075  locate xmqdspev
+ 1076  ./xmqdspev.sh -m FADEVACCUM -q SYSTEM.ADMIN.QMGR.EVENT
+ 1077  ./amqsbcg SYSTEM.ADMIN.QMGR.EVENT FADEVACCUM > /tmp/SYSTEM.ADMIN.QMGR.EVENT.out1
+ 1078  cat /tmp/SYSTEM.ADMIN.QMGR.EVENT.out1
+ 1079  dmpmqaut -m FADEVACCUM -t a11 > /tmp/FADEVACCUM.dump
+ 1080  dmpmqaut
+ 1081  dmpmqaut -
+ 1082  dmpmqaut -m FADEVACCUM -n FAS.Ql -t q -p faapptst
+ 1083  dmpmqaut -m FADEVACCUM -n FAS.QL -t q -p faapptst
+ 1084  dspmqaut -m FADEVACCUM -n FAS.QL -t q -p faapptst
+ 1085  dspmq
+ 1086  runmqsc PXDEVAPP01
+ 1087  PXLT.CICSPD01.SRVC1.REP1
+ 1088  dmpmqaut -m PXDEVAPP01 -n PXLT.CICSPD01.SRVC1.REP1 -t q -p pxtstusr
+ 1089  dspmqaut -m PXDEVAPP01 -n PXLT.CICSPD01.SRVC1.REP1 -t q -p pxtstusr
+ 1090  dmpmqaut -m FADEVACCUM -t qmgr
+ 1091  dmpmqaut -m PXDEVAPP01 -t qmgr
+
+
+
+
+
+
+
+
+
+                            
+
+                            
